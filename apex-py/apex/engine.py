@@ -74,7 +74,6 @@ class CompressedBlockResult:
     elapsed: float
 
 
-# Engine primitives
 def _lzma_compress_extreme(data: bytes) -> bytes:
     return lzma.compress(data, preset=9 | lzma.PRESET_EXTREME)
 
@@ -404,9 +403,7 @@ def _evaluate_pipeline(pipeline_id: int, raw_data: bytes) -> CompressedBlockResu
     pipe = PIPELINES[pipeline_id]
     t0 = time.perf_counter()
     try:
-        # 1. Forward transform
         transformed = apply_transform(raw_data, pipe.transform_id)
-        # 2. Engine compression
         compressed = pipe.compress_fn(transformed)
         elapsed = time.perf_counter() - t0
         return CompressedBlockResult(
@@ -644,10 +641,8 @@ def decompress_chunk(compressed_data: bytes, pipeline_id: int) -> bytes:
 
     pipe = PIPELINES[pipeline_id]
 
-    # 1. Reverse compression engine
     transformed = pipe.decompress_fn(compressed_data)
 
-    # 2. Reverse preconditioning transform
     raw = invert_transform(transformed, pipe.transform_id)
 
     return raw

@@ -130,7 +130,6 @@ def cmd_compress(args):
     if not args.quiet:
         print("\n")
 
-    # Print summary card
     speed_mb = (res["uncompressed_bytes"] / (1024 * 1024)) / res["elapsed"] if res["elapsed"] > 0 else 0.0
     print(f"{BOLD}{GREEN}✓ Compression Complete!{RESET}")
     print("=" * 60)
@@ -399,7 +398,6 @@ def main():
     parser.add_argument("-V", "--version", action="version", version="%(prog)s 1.2.0")
     subparsers = parser.add_subparsers(dest="subcommand", help="Available subcommands")
 
-    # Compress
     p_comp = subparsers.add_parser("compress", aliases=["c"], help="Compress a file or folder into an .apx archive (saved to ~/Downloads by default)")
     p_comp.add_argument("target", help="File or folder to compress")
     p_comp.add_argument("-o", "--output", help="Output .apx file path (default: ~/Downloads/<name>.apx)")
@@ -413,7 +411,6 @@ def main():
     p_comp.add_argument("-q", "--quiet", action="store_true", help="Suppress progress output")
     p_comp.set_defaults(func=cmd_compress)
 
-    # Decompress
     p_decomp = subparsers.add_parser("decompress", aliases=["x", "extract"], help="Decompress an .apx archive")
     p_decomp.add_argument("archive", help="Path to .apx archive")
     p_decomp.add_argument("files", nargs="*", help="Specific files or paths to selectively extract")
@@ -423,7 +420,6 @@ def main():
     p_decomp.add_argument("-q", "--quiet", action="store_true", help="Suppress progress output")
     p_decomp.set_defaults(func=cmd_decompress)
 
-    # Diff
     p_diff = subparsers.add_parser("diff", aliases=["d"], help="Compare manifests and contents between two .apx archives")
     p_diff.add_argument("archive1", help="First .apx archive")
     p_diff.add_argument("archive2", help="Second .apx archive")
@@ -431,38 +427,32 @@ def main():
     p_diff.add_argument("--json", action="store_true", help="Output diff as JSON")
     p_diff.set_defaults(func=cmd_diff)
 
-    # Shell Completions
     p_comp_gen = subparsers.add_parser("completions", help="Generate shell completions script (bash, zsh, fish)")
     p_comp_gen.add_argument("shell", choices=["bash", "zsh", "fish"], help="Target shell")
     p_comp_gen.set_defaults(func=cmd_completions)
 
-    # Test
     p_test = subparsers.add_parser("test", aliases=["t"], help="Test archive integrity without writing to disk")
     p_test.add_argument("archive", help="Path to .apx archive")
     p_test.add_argument("-p", "--password", help="Password for encrypted archive")
     p_test.set_defaults(func=cmd_test)
 
-    # List
     p_list = subparsers.add_parser("list", aliases=["l"], help="List contents of an .apx archive")
     p_list.add_argument("archive", help="Path to .apx archive")
     p_list.add_argument("-p", "--password", help="Password for encrypted archive")
     p_list.set_defaults(func=cmd_list)
 
-    # Repair / Self-Healing
     p_repair = subparsers.add_parser("repair", aliases=["fix", "heal"], help="Self-heal a damaged .apx archive using recovery parity")
     p_repair.add_argument("archive", help="Path to damaged .apx archive")
     p_repair.add_argument("-o", "--output", help="Output repaired .apx path (default: <name>.repaired.apx)")
     p_repair.add_argument("-p", "--password", help="Password if archive is encrypted")
     p_repair.set_defaults(func=cmd_repair)
 
-    # Benchmark
     p_bench = subparsers.add_parser("benchmark", aliases=["b"], help="Shootout benchmark against Gzip, Bzip2, XZ, Zstd, Brotli")
     p_bench.add_argument("file", help="File to benchmark")
     p_bench.add_argument("--max-sample-mb", type=float, default=16.0, help="Max sample size to benchmark in MB")
     p_bench.add_argument("--full", action="store_true", help="Benchmark entire file without 16 MB sample limit")
     p_bench.set_defaults(func=cmd_benchmark)
 
-    # Info
     p_info = subparsers.add_parser("info", aliases=["i"], help="Analyze Shannon entropy and file compressibility")
     p_info.add_argument("file", help="File to analyze")
     p_info.set_defaults(func=cmd_info)

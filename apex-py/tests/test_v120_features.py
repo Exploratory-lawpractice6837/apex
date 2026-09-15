@@ -155,7 +155,6 @@ class TestV120Features(unittest.TestCase):
 
     def test_cli_exclude_flag(self):
         import subprocess
-        # Create folder
         test_dir = self.work_path / "cli_exclude_src"
         test_dir.mkdir()
         (test_dir / "keep.txt").write_text("keep this")

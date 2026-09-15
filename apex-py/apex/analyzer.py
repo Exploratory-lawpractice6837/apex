@@ -49,7 +49,6 @@ def analyze_data(data: bytes) -> EntropyReport:
             compressibility_pct=100.0,
         )
 
-    # Byte frequency count
     counts = Counter(data)
     unique_count = len(counts)
 
@@ -59,7 +58,6 @@ def analyze_data(data: bytes) -> EntropyReport:
         p = count / n
         entropy -= p * math.log2(p)
 
-    # Clamp to [0.0, 8.0]
     entropy = max(0.0, min(8.0, entropy))
 
     theoretical_ratio = (8.0 / entropy) if entropy > 0.0001 else 999.99
@@ -76,11 +74,9 @@ def analyze_data(data: bytes) -> EntropyReport:
     ) + counts.get(10, 0) + counts.get(13, 0) + counts.get(9, 0)
     ascii_ratio = ascii_count / n
 
-    # High bytes (> 127)
     high_count = sum(counts.get(b, 0) for b in range(128, 256))
     high_ratio = high_count / n
 
-    # Classification heuristics
     if entropy > 7.95:
         classification = "High Entropy (Pre-compressed, encrypted, or random noise)"
         recommended_mode = "fast (or store)"

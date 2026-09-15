@@ -13,7 +13,6 @@ try:
 except ImportError:
     HAVE_NUMPY = False
 
-# Transform IDs
 TRANSFORM_NONE = 0
 TRANSFORM_DELTA1 = 1
 TRANSFORM_DELTA2 = 2

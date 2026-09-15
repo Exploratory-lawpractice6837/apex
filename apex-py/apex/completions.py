@@ -201,7 +201,6 @@ function __fish_apex_using_command
     return 1
 end
 
-# Commands
 complete -f -c apex -n '__fish_apex_needs_command' -a compress -d 'Compress file or directory into .apx'
 complete -f -c apex -n '__fish_apex_needs_command' -a c -d 'Compress alias'
 complete -f -c apex -n '__fish_apex_needs_command' -a decompress -d 'Decompress .apx archive'
@@ -221,11 +220,9 @@ complete -f -c apex -n '__fish_apex_needs_command' -a info -d 'Entropy and compr
 complete -f -c apex -n '__fish_apex_needs_command' -a i -d 'Info alias'
 complete -f -c apex -n '__fish_apex_needs_command' -a completions -d 'Generate shell completions'
 
-# Global flags
 complete -c apex -s V -l version -d 'Show version'
 complete -c apex -s h -l help -d 'Show help'
 
-# Subcommand completions
 complete -c apex -n '__fish_apex_using_command compress' -s m -l mode -a 'fast balanced ultra brute' -d 'Compression preset'
 complete -c apex -n '__fish_apex_using_command compress' -s o -l output -r -d 'Output file'
 complete -c apex -n '__fish_apex_using_command compress' -s r -l recovery -d 'Reed-Solomon recovery records'

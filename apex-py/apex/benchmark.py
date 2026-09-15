@@ -57,7 +57,6 @@ def run_benchmark(data: bytes) -> List[BenchmarkEntry]:
     orig_len = len(data)
     results: List[BenchmarkEntry] = []
 
-    # 1. Standard Deflate / Gzip (Level 9)
     try:
         t0 = time.perf_counter()
         c_gzip = gzip.compress(data, compresslevel=9)
@@ -78,7 +77,6 @@ def run_benchmark(data: bytes) -> List[BenchmarkEntry]:
     except Exception:
         pass
 
-    # 2. Bzip2 (Level 9)
     try:
         t0 = time.perf_counter()
         c_bz2 = bz2.compress(data, compresslevel=9)
@@ -99,7 +97,6 @@ def run_benchmark(data: bytes) -> List[BenchmarkEntry]:
     except Exception:
         pass
 
-    # 3. XZ / LZMA2 (Preset 9 Extreme)
     try:
         t0 = time.perf_counter()
         c_xz = lzma.compress(data, preset=9 | lzma.PRESET_EXTREME)
@@ -120,7 +117,6 @@ def run_benchmark(data: bytes) -> List[BenchmarkEntry]:
     except Exception:
         pass
 
-    # 4. Zstandard (Level 19)
     if HAVE_ZSTD:
         try:
             t0 = time.perf_counter()
@@ -142,7 +138,6 @@ def run_benchmark(data: bytes) -> List[BenchmarkEntry]:
         except Exception:
             pass
 
-    # 5. Brotli (Level 11)
     if HAVE_BROTLI:
         try:
             t0 = time.perf_counter()
@@ -164,7 +159,6 @@ def run_benchmark(data: bytes) -> List[BenchmarkEntry]:
         except Exception:
             pass
 
-    # 6. ApexCompress FAST
     try:
         t0 = time.perf_counter()
         c_apex_fast = compress_chunk(data, mode=Mode.FAST)
@@ -185,7 +179,6 @@ def run_benchmark(data: bytes) -> List[BenchmarkEntry]:
     except Exception:
         pass
 
-    # 7. ApexCompress BALANCED
     try:
         t0 = time.perf_counter()
         c_apex_bal = compress_chunk(data, mode=Mode.BALANCED)
@@ -206,7 +199,6 @@ def run_benchmark(data: bytes) -> List[BenchmarkEntry]:
     except Exception:
         pass
 
-    # 8. ApexCompress ULTRA
     try:
         t0 = time.perf_counter()
         c_apex_ultra = compress_chunk(data, mode=Mode.ULTRA)
@@ -227,6 +219,5 @@ def run_benchmark(data: bytes) -> List[BenchmarkEntry]:
     except Exception:
         pass
 
-    # Sort results by compressed size ascending (smallest output first)
     results.sort(key=lambda r: r.compressed_size)
     return results

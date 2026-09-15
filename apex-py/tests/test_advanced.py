@@ -205,14 +205,12 @@ class TestArchiveAdvanced(unittest.TestCase):
             # Skip magic (8), header (18), manifest
             flags, bsize, manifest, _, _ = read_archive_header(f)
             # We are now at start of block 0
-            # Read block 0: header (13) + payload
             pid, ulen, clen, crc = [f.read(1), f.read(4), f.read(4), f.read(4)]
             c_len0 = int.from_bytes(clen, "little")
             f.seek(c_len0, os.SEEK_CUR)
 
             # Now at block 1 header
             b1_hdr_pos = f.tell()
-            # Read header
             f.seek(13, os.SEEK_CUR)
             # Mutate first 10 bytes of block 1 payload
             payload_pos = f.tell()

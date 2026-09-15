@@ -60,7 +60,6 @@ def fastcdc_chunk_stream(
             yield bytes(buffer[:cut])
             del buffer[:cut]
 
-    # Process residual bytes
     while len(buffer) > min_chunk:
         rem = len(buffer)
         limit = min(rem, max_chunk)

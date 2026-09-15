@@ -75,7 +75,6 @@ class TestTooling(unittest.TestCase):
         self.assertFalse(os.path.exists(os.path.join(out_single, "sample_dir", "data.json")))
 
     def test_diff_archives(self):
-        # Create dir 1
         d1 = os.path.join(self.test_dir, "d1")
         os.makedirs(d1, exist_ok=True)
         with open(os.path.join(d1, "file_a.txt"), "w") as f:
@@ -83,7 +82,6 @@ class TestTooling(unittest.TestCase):
         with open(os.path.join(d1, "file_b.txt"), "w") as f:
             f.write("Will be deleted")
 
-        # Create dir 2
         d2 = os.path.join(self.test_dir, "d2")
         os.makedirs(d2, exist_ok=True)
         with open(os.path.join(d2, "file_a.txt"), "w") as f:

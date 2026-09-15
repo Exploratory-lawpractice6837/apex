@@ -349,7 +349,6 @@ def compress_archive(
 
     manifest, stream = build_manifest(source_path, chunk_size=block_size, exclude_patterns=exclude_patterns)
 
-    # Serialize and compress manifest
     manifest_bytes = manifest.to_json().encode("utf-8")
     comp_manifest = zlib.compress(manifest_bytes, level=9)
 
@@ -436,7 +435,6 @@ def compress_archive(
                     c_len = len(payload)
                     total_compressed += c_len
 
-                    # Write block header: pipeline_id (uint8), uncomp_len (uint32), comp_len (uint32), crc32 (uint32)
                     out.write(struct.pack("<BIII", pid, u_len, c_len, b_crc))
                     out.write(payload)
 
@@ -524,10 +522,8 @@ def compress_archive(
 
                 reader_t.join()
 
-            # EOF Marker
             out.write(struct.pack("<BIII", EOF_PIPELINE_ID, 0, 0, 0))
 
-            # Stream Footer:
             # sha256 (32 bytes), total_uncompressed_bytes (uint64), total_blocks (uint32), footer_magic (4 bytes)
             digest = overall_hasher.digest()
             out.write(digest)
@@ -700,7 +696,6 @@ def test_archive(archive_path: str, password: Optional[str] = None) -> Dict:
                 total_uncompressed += uncomp_len
                 total_blocks += 1
 
-        # Read footer
         stored_sha = f.read(32)
         stored_uncomp, stored_blocks = struct.unpack("<QI", f.read(12))
         footer_magic = f.read(4)
@@ -972,7 +967,6 @@ def decompress_archive(
                         if stop_event.is_set():
                             return
 
-                        # Footer verification
                         stored_sha = f.read(32)
                         stored_uncomp, stored_blocks = struct.unpack("<QI", f.read(12))
                         footer_magic = f.read(4)
@@ -1529,12 +1523,10 @@ def repair_archive(
 
             total_blocks += 1
 
-        # Read footer
         stored_sha = f.read(32)
         stored_uncomp, stored_blocks = struct.unpack("<QI", f.read(12))
         footer_magic = f.read(4)
 
-        # Read parity
         parity_hdr = f.read(8)
         if len(parity_hdr) != 8:
             raise ValueError("Corrupted archive: recovery record is truncated or missing.")
@@ -1549,7 +1541,6 @@ def repair_archive(
                 "elapsed": time.perf_counter() - t0,
             }
 
-        # Heal the damaged block!
         healed_raw = heal_damaged_block(
             raw_blocks,
             damaged_block_idx,
@@ -1563,7 +1554,6 @@ def repair_archive(
 
         raw_blocks[damaged_block_idx] = healed_raw
 
-        # Re-compress the healed block
         healed_comp = compress_chunk(healed_raw, mode=Mode.BALANCED)
         healed_payload = healed_comp.data
         if flags & FLAG_ENCRYPTED:
@@ -1577,7 +1567,6 @@ def repair_archive(
             healed_payload,
         )
 
-    # Write repaired archive
     overall_hasher = hashlib.sha256()
     for idx in range(total_blocks):
         overall_hasher.update(raw_blocks[idx])
@@ -1589,7 +1578,6 @@ def repair_archive(
     try:
         with open(archive_p, "rb") as orig_f, open(temp_repaired_path, "wb") as out_f:
             orig_f.seek(0)
-            # Copy magic and container header
             out_f.write(orig_f.read(8))  # Magic
             hdr_b = orig_f.read(struct.calcsize("<HIII"))
             out_f.write(hdr_b)
@@ -1598,18 +1586,15 @@ def repair_archive(
                 out_f.write(orig_f.read(16))  # Salt
             out_f.write(orig_f.read(m_comp_l))  # Manifest
 
-            # Write healed blocks
             for pid, u_len, c_len, crc, payload in block_metas:
                 out_f.write(struct.pack("<BIII", pid, u_len, c_len, crc))
                 out_f.write(payload)
 
-            # EOF
             out_f.write(struct.pack("<BIII", EOF_PIPELINE_ID, 0, 0, 0))
             # Updated footer with verified SHA-256
             out_f.write(overall_hasher.digest())
             out_f.write(struct.pack("<QI", stored_uncomp, total_blocks))
             out_f.write(MAGIC_FOOTER)
-            # Parity
             out_f.write(struct.pack("<II", len(parity_data), parity_max_block_len))
             out_f.write(parity_data)
 

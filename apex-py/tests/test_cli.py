@@ -25,7 +25,6 @@ class TestCLI(unittest.TestCase):
 
         archive = Path(self.tmpdir) / "test.txt.apx"
 
-        # Compress
         res = subprocess.run(
             APEX_CMD + ["c", str(sample), "-o", str(archive), "-m", "fast"],
             capture_output=True,
@@ -34,7 +33,6 @@ class TestCLI(unittest.TestCase):
         self.assertEqual(res.returncode, 0, f"apex c failed: {res.stderr}")
         self.assertTrue(archive.exists())
 
-        # List
         res = subprocess.run(
             APEX_CMD + ["l", str(archive)],
             capture_output=True,
@@ -43,7 +41,6 @@ class TestCLI(unittest.TestCase):
         self.assertEqual(res.returncode, 0, f"apex l failed: {res.stderr}")
         self.assertIn("test.txt", res.stdout)
 
-        # Test
         res = subprocess.run(
             APEX_CMD + ["t", str(archive)],
             capture_output=True,
@@ -52,7 +49,6 @@ class TestCLI(unittest.TestCase):
         self.assertEqual(res.returncode, 0, f"apex t failed: {res.stderr}")
         self.assertIn("Archive Integrity PASSED", res.stdout)
 
-        # Decompress
         out_dir = Path(self.tmpdir) / "out"
         res = subprocess.run(
             APEX_CMD + ["x", str(archive), "-d", str(out_dir)],
