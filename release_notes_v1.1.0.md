@@ -1,8 +1,8 @@
-# ApexCompress v1.1.0 — Ecosystem & Tooling Release ⚡📦
+# ApexCompress v1.1.0 — Ecosystem & Tooling Release 
 
 ApexCompress v1.1.0 expands the container format into a developer-first ecosystem with zero-copy selective extraction, archive diffing, native shell autocompletions, Windows Explorer context menus, and a high-performance Python Library SDK.
 
-### 🌟 What's New in v1.1.0
+### What's New in v1.1.0
 
 #### 1. Selective Extraction (`apex x archive.apx -i "*.json"`)
 - Extract specific files or glob patterns without extracting or decompressing the entire archive to disk.
@@ -62,8 +62,8 @@ restored = apex.decompress_bytes(compressed)
 
 #### 5. Windows Explorer Context Menu Integration
 - [`scripts/windows_context_menu.reg`](scripts/windows_context_menu.reg) adds native Explorer right-click options:
-  - Right-click files/folders: "Compress with Apex" (Balanced, Ultra, Fast, Self-Healing Parity).
-  - Right-click `.apx` files: "Extract with Apex", "Test Archive Integrity", "Repair Damaged Archive".
+ - Right-click files/folders: "Compress with Apex" (Balanced, Ultra, Fast, Self-Healing Parity).
+ - Right-click `.apx` files: "Extract with Apex", "Test Archive Integrity", "Repair Damaged Archive".
 
 #### 6. Expanded Verification & Quality Assurance
 - Test suite expanded to **40 comprehensive automated tests** covering all transforms, FastCDC deduplication, Reed-Solomon Cauchy self-healing, AES-256-CTR encryption, selective extraction, archive diffing, and shell completions.
@@ -71,7 +71,7 @@ restored = apex.decompress_bytes(compressed)
 
 ---
 
-### 📦 Pre-Compiled Standalone Binaries (v1.1.0)
+### Pre-Compiled Standalone Binaries (v1.1.0)
 No Python runtime or external dependencies required:
 - **macOS (Darwin x86_64 / Apple Silicon)**: `apex-v1.1.0-darwin-x86_64.tar.gz`
 - **Linux (GLIBC 2.28+ x86_64)**: `apex-v1.1.0-linux-x86_64.tar.gz`

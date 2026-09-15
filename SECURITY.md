@@ -8,33 +8,33 @@ ApexCompress (`apex`) is built with standard cryptographic architecture designed
 
 ---
 
-## 🔒 Cryptographic Architecture & Guarantees
+## Cryptographic Architecture & Guarantees
 
 ApexCompress implements standard, vetted cryptographic primitives without proprietary roll-your-own crypto:
 
 1. **Key Derivation**:
-   - **Algorithm**: PBKDF2-HMAC-SHA256
-   - **Work Factor**: 100,000 iterations (chosen for hashlib compatibility in zero-dependency environments)
-   - **Salt**: 128-bit cryptographically secure random salt (`os.urandom(16)`), uniquely generated per archive.
+ - **Algorithm**: PBKDF2-HMAC-SHA256
+ - **Work Factor**: 100,000 iterations (chosen for hashlib compatibility in zero-dependency environments)
+ - **Salt**: 128-bit cryptographically secure random salt (`os.urandom(16)`), uniquely generated per archive.
 
 2. **Payload Encryption**:
-   - **Cipher**: AES-256 in Counter (CTR) mode with native OpenSSL / AES-NI hardware acceleration.
-   - **Fallback**: Pure-Python ChaCha20 stream cipher when native OpenSSL is unavailable.
-   - **Granularity**: Encrypts the archive manifest (file tree, names, permissions, timestamps) and all block payloads.
+ - **Cipher**: AES-256 in Counter (CTR) mode with native OpenSSL / AES-NI hardware acceleration.
+ - **Fallback**: Pure-Python ChaCha20 stream cipher when native OpenSSL is unavailable.
+ - **Granularity**: Encrypts the archive manifest (file tree, names, permissions, timestamps) and all block payloads.
 
 3. **Integrity & Tamper-Proof Authentication**:
-   - **Architecture**: **Encrypt-then-MAC** design.
-   - **MAC**: HMAC-SHA256 calculated over the header, encrypted manifest, and all encrypted payload blocks.
-   - **Protection**: Designed to prevent bit-flipping attacks, padding oracles, and chosen-ciphertext tampering. Any modified bit triggers immediate rejection before decompression.
+ - **Architecture**: **Encrypt-then-MAC** design.
+ - **MAC**: HMAC-SHA256 calculated over the header, encrypted manifest, and all encrypted payload blocks.
+ - **Protection**: Designed to prevent bit-flipping attacks, padding oracles, and chosen-ciphertext tampering. Any modified bit triggers immediate rejection before decompression.
 
 4. **Integrity & Error Correction**:
-   - **Per-Block**: CRC-32 checksum validated for every block.
-   - **End-to-End**: 256-bit cryptographic SHA-256 stream hash verified upon decompression.
-   - **Bit-Rot Defense**: Cauchy Reed-Solomon $GF(2^8)$ MDS parity records to mathematically heal corrupted blocks.
+ - **Per-Block**: CRC-32 checksum validated for every block.
+ - **End-to-End**: 256-bit cryptographic SHA-256 stream hash verified upon decompression.
+ - **Bit-Rot Defense**: Cauchy Reed-Solomon $GF(2^8)$ MDS parity records to mathematically heal corrupted blocks.
 
 ---
 
-## ⚠️ What is NOT Protected (Threat Model Exclusions)
+## What is NOT Protected (Threat Model Exclusions)
 
 When an archive is encrypted, be aware of these structural limitations:
 
@@ -45,11 +45,11 @@ When an archive is encrypted, be aware of these structural limitations:
 
 ---
 
-## 🚨 Reporting a Vulnerability or Security Issue
+## Reporting a Vulnerability or Security Issue
 
 We believe in open, transparent security and rapid public fixes. If you discover a bug, cryptographic flaw, memory safety concern, or integrity issue, **please do not open a public issue.**
 
-### 👉 Private Disclosure:
+### Private Disclosure:
 Please email **security@qxmcu.github.io** or use GitHub's **Private Vulnerability Reporting** mechanism.
 
 1. **Private Disclosure**: Send us the details and a PoC.

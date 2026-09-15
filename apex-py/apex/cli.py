@@ -350,16 +350,16 @@ def cmd_benchmark(args):
 
     for i, r in enumerate(results, 1):
         if i == 1:
-            rank_str = f"{YELLOW}🥇 1{RESET}"
+            rank_str = f"{YELLOW}#1   {RESET}"
             name_str = f"{BOLD}{GREEN}{r.engine_name:<42}{RESET}"
         elif i == 2:
-            rank_str = f"{CYAN}🥈 2{RESET}"
+            rank_str = f"{CYAN}#2   {RESET}"
             name_str = f"{CYAN}{r.engine_name:<42}{RESET}"
         elif i == 3:
-            rank_str = f"{MAGENTA}🥉 3{RESET}"
+            rank_str = f"{MAGENTA}#3   {RESET}"
             name_str = f"{r.engine_name:<42}"
         else:
-            rank_str = f"#{i:<3}"
+            rank_str = f"#{i:<4}"
             name_str = f"{r.engine_name:<42}"
 
         print(f"{rank_str:<5} | {name_str} | {format_bytes(r.compressed_size):<11} | {r.compression_ratio:6.2f}x  | {r.space_saved_pct:6.2f}% | {r.compression_time_ms:8.2f} ms")

@@ -9,7 +9,7 @@ class Apex < Formula
 
   on_macos do
     url "https://github.com/qxmcu/apex/releases/download/v1.2.0/apex-v1.2.0-darwin-x86_64.tar.gz"
-    sha256 "af9ac0cc8ea5b07ce086135fc342d219086ef142b7637fa24091742627d76b06"
+    sha256 "ca1702fbffe565b392b22edced008b372877f7c084a7100e74cec376f534db50"
   end
 
   on_linux do

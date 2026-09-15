@@ -1,4 +1,4 @@
-# Contributing to ApexCompress ⚡📦
+# Contributing to ApexCompress 
 
 Thank you for your interest in contributing to **ApexCompress**! ApexCompress is an open-source project designed to push the boundaries of data compression science through adaptive multi-engine tournaments, domain-specific preconditioning, self-healing parity, and authenticated encryption.
 
@@ -6,25 +6,25 @@ Whether you are fixing a bug, adding a new compression engine, designing a speci
 
 ---
 
-## 📑 Table of Contents
+## Table of Contents
 
-- [Code of Conduct](#-code-of-conduct)
-- [How Can I Contribute?](#-how-can-i-contribute)
-- [Setting Up Your Local Development Environment](#-setting-up-your-local-development-environment)
-- [Codebase Architecture & Subsystems](#-codebase-architecture--subsystems)
-- [Step-by-Step Contribution Guides](#-step-by-step-contribution-guides)
-  - [Guide 1: Adding a New Compression Engine](#guide-1-adding-a-new-compression-engine)
-  - [Guide 2: Implementing a New Preconditioning Transform](#guide-2-implementing-a-new-preconditioning-transform)
-  - [Guide 3: Enhancing the Self-Healing Parity Engine](#guide-3-enhancing-the-self-healing-parity-engine)
-- [Coding Standards & Best Practices](#-coding-standards--best-practices)
-- [Testing & Quality Assurance](#-testing--quality-assurance)
-- [Pull Request & Git Commit Guidelines](#-pull-request--git-commit-guidelines)
-- [Building & Testing Standalone Binaries](#-building--testing-standalone-binaries)
-- [Community & Getting Help](#-community--getting-help)
+- [Code of Conduct](#code-of-conduct)
+- [How Can I Contribute?](#how-can-i-contribute)
+- [Setting Up Your Local Development Environment](#setting-up-your-local-development-environment)
+- [Codebase Architecture & Subsystems](#codebase-architecture--subsystems)
+- [Step-by-Step Contribution Guides](#step-by-step-contribution-guides)
+ - [Guide 1: Adding a New Compression Engine](#guide-1-adding-a-new-compression-engine)
+ - [Guide 2: Implementing a New Preconditioning Transform](#guide-2-implementing-a-new-preconditioning-transform)
+ - [Guide 3: Enhancing the Self-Healing Parity Engine](#guide-3-enhancing-the-self-healing-parity-engine)
+- [Coding Standards & Best Practices](#coding-standards--best-practices)
+- [Testing & Quality Assurance](#testing--quality-assurance)
+- [Pull Request & Git Commit Guidelines](#pull-request--git-commit-guidelines)
+- [Building & Testing Standalone Binaries](#building--testing-standalone-binaries)
+- [Community & Getting Help](#community--getting-help)
 
 ---
 
-## 🧭 Code of Conduct
+## Code of Conduct
 
 We are committed to providing a welcoming, inclusive, and harassment-free community for everyone.
 - **Be respectful and constructive**: Treat all contributors with empathy and patience.
@@ -33,7 +33,7 @@ We are committed to providing a welcoming, inclusive, and harassment-free commun
 
 ---
 
-## 💡 How Can I Contribute?
+## How Can I Contribute?
 
 There are many ways to contribute to ApexCompress:
 1. **Reporting Bugs**: Found a file that compresses poorly, causes an error, or fails verification? Open an issue using our [Bug Report Template](.github/ISSUE_TEMPLATE/bug_report.md).
@@ -44,7 +44,7 @@ There are many ways to contribute to ApexCompress:
 
 ---
 
-## 🛠️ Setting Up Your Local Development Environment
+## Setting Up Your Local Development Environment
 
 ### 1. Prerequisites
 - **Python 3.9+** (Python 3.10 – 3.14 fully supported)
@@ -84,67 +84,67 @@ All **32 tests** must pass before making any code modifications.
 
 ---
 
-## 🏗️ Codebase Architecture & Subsystems
+## Codebase Architecture & Subsystems
 
 ApexCompress is structured as a cleanly decoupled pipeline where each module has a single, well-defined responsibility:
 
 ```
 apex/
-├── pyproject.toml              # Root build & dependency configuration
-├── LICENSE                     # GNU General Public License v3.0
-├── NOTICE                      # Attribution and legal notices
-├── README.md                   # Primary project documentation
-├── CONTRIBUTING.md             # This document
+├── pyproject.toml # Root build & dependency configuration
+├── LICENSE # GNU General Public License v3.0
+├── NOTICE # Attribution and legal notices
+├── README.md # Primary project documentation
+├── CONTRIBUTING.md # This document
 ├── .github/
-│   ├── workflows/ci.yml        # Multi-OS GitHub Actions CI matrix
-│   ├── ISSUE_TEMPLATE/         # Bug & Feature templates
-│   └── pull_request_template.md# PR review checklist
-├── apex-py/                    # Core Python Reference Implementation
-│   ├── apex/
-│   │   ├── analyzer.py         # Stage 1: Microsecond Shannon entropy & structural classification
-│   │   ├── transforms.py       # Stage 1.5: 11 Reversible domain preconditioning filters
-│   │   ├── engine.py           # Stages 2 & 3: Adaptive tournament qualifier heats & finals
-│   │   ├── archive.py          # Solid container serializer, FastCDC chunker & deduplication
-│   │   ├── recovery.py         # Cauchy Reed-Solomon GF(2^8) self-healing parity & linear solver
-│   │   ├── security.py         # PBKDF2, AES-256-CTR / ChaCha20, HMAC-SHA256 Encrypt-then-MAC
-│   │   ├── benchmark.py        # Head-to-head shootout tournament benchmark runner
-│   │   └── cli.py              # Subcommand routing, argument parsing & visual UI
-│   ├── tests/
-│   │   ├── test_transforms.py  # Bit-exact reversibility tests for all 11 filters
-│   │   ├── test_archive.py     # Container packing, permissions, and directory structure tests
-│   │   ├── test_advanced.py    # Deduplication, Reed-Solomon parity healing, and crypto tests
-│   │   └── test_cli.py         # End-to-end command line interface tests
-│   ├── build_standalone.py     # Automated standalone native executable compiler
-│   └── apex_launcher.py       # Standalone binary entrypoint
-└── apex-rs/                    # Preserved Rust native reference core (gitignored)
+│ ├── workflows/ci.yml # Multi-OS GitHub Actions CI matrix
+│ ├── ISSUE_TEMPLATE/ # Bug & Feature templates
+│ └── pull_request_template.md# PR review checklist
+├── apex-py/ # Core Python Reference Implementation
+│ ├── apex/
+│ │ ├── analyzer.py # Stage 1: Microsecond Shannon entropy & structural classification
+│ │ ├── transforms.py # Stage 1.5: 11 Reversible domain preconditioning filters
+│ │ ├── engine.py # Stages 2 & 3: Adaptive tournament qualifier heats & finals
+│ │ ├── archive.py # Solid container serializer, FastCDC chunker & deduplication
+│ │ ├── recovery.py # Cauchy Reed-Solomon GF(2^8) self-healing parity & linear solver
+│ │ ├── security.py # PBKDF2, AES-256-CTR / ChaCha20, HMAC-SHA256 Encrypt-then-MAC
+│ │ ├── benchmark.py # Head-to-head shootout tournament benchmark runner
+│ │ └── cli.py # Subcommand routing, argument parsing & visual UI
+│ ├── tests/
+│ │ ├── test_transforms.py # Bit-exact reversibility tests for all 11 filters
+│ │ ├── test_archive.py # Container packing, permissions, and directory structure tests
+│ │ ├── test_advanced.py # Deduplication, Reed-Solomon parity healing, and crypto tests
+│ │ └── test_cli.py # End-to-end command line interface tests
+│ ├── build_standalone.py # Automated standalone native executable compiler
+│ └── apex_launcher.py # Standalone binary entrypoint
+└── apex-rs/ # Preserved Rust native reference core (gitignored)
 ```
 
 ---
 
-## 🛠️ Step-by-Step Contribution Guides
+## Step-by-Step Contribution Guides
 
 ### Guide 1: Adding a New Compression Engine
 
 To integrate a new compression engine (e.g. LZ4, Snappy, or a custom entropy coder):
 
 1. **Define the Engine ID** in `apex-py/apex/engine.py`:
-   ```python
-   ENGINE_NEW = 0x06
-   ```
+ ```python
+ ENGINE_NEW = 0x06
+ ```
 2. **Implement Compressor & Decompressor**:
-   ```python
-   def compress_new(data: bytes, level: int = 1) -> bytes:
-       ...
+ ```python
+ def compress_new(data: bytes, level: int = 1) -> bytes:
+ ...
 
-   def decompress_new(data: bytes) -> bytes:
-       ...
-   ```
+ def decompress_new(data: bytes) -> bytes:
+ ...
+ ```
 3. **Register in Pipeline Tables**:
-   Add your new engine configuration to `TOURNAMENT_PIPELINES` with appropriate preset levels (`fast`, `balanced`, `ultra`).
+ Add your new engine configuration to `TOURNAMENT_PIPELINES` with appropriate preset levels (`fast`, `balanced`, `ultra`).
 4. **Update Dispatch Tables**:
-   Update `COMPRESS_DISPATCH` and `DECOMPRESS_DISPATCH`.
+ Update `COMPRESS_DISPATCH` and `DECOMPRESS_DISPATCH`.
 5. **Add Tests**:
-   Add test cases to `apex-py/tests/test_advanced.py` ensuring roundtrip bit-exactness.
+ Add test cases to `apex-py/tests/test_advanced.py` ensuring roundtrip bit-exactness.
 
 ---
 
@@ -153,27 +153,27 @@ To integrate a new compression engine (e.g. LZ4, Snappy, or a custom entropy cod
 Preconditioning filters reduce entropy by rearranging or differentiating bytes prior to compression.
 
 1. **Define the Transform ID** in `apex-py/apex/transforms.py`:
-   ```python
-   TRANSFORM_MY_FILTER = 0x0C
-   ```
+ ```python
+ TRANSFORM_MY_FILTER = 0x0C
+ ```
 2. **Implement Forward and Backward Functions**:
-   ```python
-   def my_filter_forward(data: bytes) -> bytes:
-       """Applies domain preconditioning."""
-       ...
+ ```python
+ def my_filter_forward(data: bytes) -> bytes:
+ """Applies domain preconditioning."""
+ ...
 
-   def my_filter_backward(data: bytes) -> bytes:
-       """Exact inverse of my_filter_forward."""
-       ...
-   ```
+ def my_filter_backward(data: bytes) -> bytes:
+ """Exact inverse of my_filter_forward."""
+ ...
+ ```
 3. **Mandatory Invariant — 100% Bit-Exact Invertibility**:
-   ```python
-   assert my_filter_backward(my_filter_forward(raw_data)) == raw_data
-   ```
+ ```python
+ assert my_filter_backward(my_filter_forward(raw_data)) == raw_data
+ ```
 4. **Register in Dispatchers**:
-   Add to `APPLY_TRANSFORM` and `REVERSE_TRANSFORM`.
+ Add to `APPLY_TRANSFORM` and `REVERSE_TRANSFORM`.
 5. **Add Unit Tests**:
-   Add test methods to `apex-py/tests/test_transforms.py` testing random bytes, uniform bytes, empty buffers, and various block sizes.
+ Add test methods to `apex-py/tests/test_transforms.py` testing random bytes, uniform bytes, empty buffers, and various block sizes.
 
 ---
 
@@ -185,20 +185,20 @@ The recovery engine in `apex-py/apex/recovery.py` uses Galois Field $GF(2^8)$ ar
 
 ---
 
-## 📐 Coding Standards & Best Practices
+## Coding Standards & Best Practices
 
 1. **PEP 8 Compliance**: Code must adhere to PEP 8 standards. Use 4 spaces per indentation level.
 2. **Type Annotations**: Use Python type hints for all function signatures:
-   ```python
-   def compress_block(data: bytes, mode: str = "balanced") -> Tuple[bytes, int, int]:
-   ```
+ ```python
+ def compress_block(data: bytes, mode: str = "balanced") -> Tuple[bytes, int, int]:
+ ```
 3. **Docstrings**: Provide concise, clear docstrings describing the algorithmic complexity, input parameters, and return values.
 4. **Zero Silent Failures**: Never use bare `except:` clauses. Always raise descriptive exceptions or handle known errors gracefully.
 5. **Performance Discipline**: Inner loops in preconditioning and analyzer modules process megabytes of data per second. Avoid unnecessary memory allocations or redundant copies.
 
 ---
 
-## 🧪 Testing & Quality Assurance
+## Testing & Quality Assurance
 
 Before submitting a Pull Request, run the full test suite locally:
 
@@ -227,7 +227,7 @@ python3 -m unittest apex-py/tests/test_cli.py -v
 
 ---
 
-## 📦 Building & Testing Standalone Binaries
+## Building & Testing Standalone Binaries
 
 ApexCompress includes an automated build script using Nuitka to generate self-contained, zero-dependency native executables:
 
@@ -238,18 +238,18 @@ python3 build_standalone.py
 
 - **Output Location**: `apex-py/dist/apex` (or `apex.exe` on Windows).
 - **Verification**:
-  ```bash
-  # Check dynamically linked libraries (should only link to OS system libs)
-  otool -L apex-py/dist/apex  # On macOS
-  ldd apex-py/dist/apex       # On Linux
+ ```bash
+ # Check dynamically linked libraries (should only link to OS system libs)
+ otool -L apex-py/dist/apex # On macOS
+ ldd apex-py/dist/apex # On Linux
 
-  # Test execution
-  ./apex-py/dist/apex --help
-  ```
+ # Test execution
+ ./apex-py/dist/apex --help
+ ```
 
 ---
 
-## 🚀 Pull Request & Git Commit Guidelines
+## Pull Request & Git Commit Guidelines
 
 ### 1. Branch Naming
 Create a descriptive branch for your work:
@@ -274,15 +274,15 @@ We follow the [Conventional Commits](https://www.conventionalcommits.org/) speci
 
 ### 3. Submitting the PR
 1. Push your branch to your GitHub fork:
-   ```bash
-   git push origin feat/my-new-feature
-   ```
+ ```bash
+ git push origin feat/my-new-feature
+ ```
 2. Open a Pull Request against `main` on the primary repository.
 3. Fill out the [Pull Request Template](.github/pull_request_template.md).
 4. Verify that all automated GitHub Actions CI checks pass.
 
 ---
 
-## 📜 License & Copyright
+## License & Copyright
 
 By contributing to ApexCompress, you agree that your contributions will be licensed under the **[GNU General Public License v3.0](LICENSE)**.
