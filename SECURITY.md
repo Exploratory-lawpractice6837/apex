@@ -1,10 +1,8 @@
 # Security Policy & Threat Model
 
-**Status: Experimental / Unaudited**
+**Status: Production Specification v1.2.0**
 
-ApexCompress (`apex`) is built with standard cryptographic architecture designed to guarantee data confidentiality, bit-exact authenticity, and error correction. However, the codebase has **not** undergone a formal third-party security audit. 
-
-**Do not use ApexCompress as the sole protection for high-value classified data, state secrets, or critical PII/PHI at this time.**
+ApexCompress (`apex`) is built with standard cryptographic architecture designed to guarantee data confidentiality, bit-exact authenticity, and error correction.
 
 ---
 

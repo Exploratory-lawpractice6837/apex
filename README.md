@@ -46,7 +46,7 @@ Tested on AMD Ryzen 3 3250U (2 cores, 4 threads, 2.6 GHz), 8 GB DDR4, NVMe PCIe 
 | Zstandard -19 | 49.30 s | 5.7 MB/s | 4.1 MB | 98.55% | 68.78x |
 | XZ -9e (LZMA2) | 648.10 s | 0.4 MB/s | 3.9 MB | 98.62% | 72.31x |
 
-*Apex ULTRA matches XZ -9e extreme density while completing substantially faster through parallel multi-core execution.*
+Apex ULTRA matches XZ -9e extreme density while completing substantially faster through parallel multi-core execution.
 
 ---
 
