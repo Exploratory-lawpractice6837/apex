@@ -104,13 +104,15 @@
       </a>
 
       <!-- Direct Technical Nav -->
-      <nav class="hidden lg:flex items-center gap-8 text-xs font-mono tracking-wide text-brand-muted uppercase">
-        <a href="#audit" class="hover:text-brand-acid transition-colors">01 // Architectural Flaws</a>
-        <a href="#engine" class="hover:text-brand-acid transition-colors">02 // The Pipeline</a>
-        <a href="#benchmarks" class="hover:text-brand-acid transition-colors">03 // Verification Data</a>
-        <a href="#tooling" class="hover:text-brand-acid transition-colors">04 // Ecosystem & Tooling</a>
-        <a href="#license" class="hover:text-brand-acid transition-colors">05 // Open Source</a>
-        <a href="#install" class="hover:text-brand-acid transition-colors">06 // Binaries</a>
+      <nav class="hidden xl:flex items-center gap-6 text-[11px] font-mono tracking-wide text-brand-muted uppercase">
+        <a href="#audit" class="hover:text-brand-acid transition-colors">01 // Comparison</a>
+        <a href="#engine" class="hover:text-brand-acid transition-colors">02 // Pipeline</a>
+        <a href="#benchmarks" class="hover:text-brand-acid transition-colors">03 // Benchmarks</a>
+        <a href="#commands" class="hover:text-brand-acid transition-colors">04 // CLI Manual</a>
+        <a href="#sdk" class="hover:text-brand-acid transition-colors">05 // Python SDK</a>
+        <a href="#spec" class="hover:text-brand-acid transition-colors">06 // Container Spec</a>
+        <a href="#products" class="hover:text-brand-acid transition-colors">07 // Products</a>
+        <a href="#install" class="hover:text-brand-acid transition-colors">08 // Binaries</a>
       </nav>
 
       <!-- Terminal Status & Action -->
@@ -256,9 +258,9 @@
 
           <div class="mt-4 p-3 border border-brand-border bg-[#090A0F] text-[11px] text-brand-muted font-mono leading-relaxed">
             <div class="text-white font-bold mb-1 border-b border-hairline pb-1"><a href="https://github.com/qxmcu/apex/actions" target="_blank" class="hover:text-brand-acid transition-colors">Cross-platform verification (GitHub CI) ↗</a></div>
-            <div class="flex justify-between"><span>macOS 14</span><span class="text-brand-acid font-bold">✓</span></div>
-            <div class="flex justify-between"><span>Ubuntu 24</span><span class="text-brand-acid font-bold">✓</span></div>
-            <div class="flex justify-between border-b border-hairline pb-1 mb-1"><span>Windows 11</span><span class="text-brand-acid font-bold">✓</span></div>
+            <div class="flex justify-between"><span>macOS 14</span><span class="text-brand-acid font-bold flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 inline"></i> PASS</span></div>
+            <div class="flex justify-between"><span>Ubuntu 24</span><span class="text-brand-acid font-bold flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 inline"></i> PASS</span></div>
+            <div class="flex justify-between border-b border-hairline pb-1 mb-1"><span>Windows 11</span><span class="text-brand-acid font-bold flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 inline"></i> PASS</span></div>
             <div class="flex justify-between"><span>Files tested:</span><span class="text-white">142,473</span></div>
             <div class="flex justify-between"><span>SHA-256 mismatches:</span><span class="text-brand-acid">0</span></div>
           </div>
@@ -524,6 +526,31 @@
             <i data-lucide="info" class="w-4 h-4 text-brand-acid flex-shrink-0 mt-0.5"></i>
             <span><strong>Analysis:</strong> Apex Ultra matches XZ -9e density but finishes substantially faster. On the 12.3 GB Xcode dataset, XZ achieves slightly better density (3.9 GB vs 4.0 GB) while APEX finishes in 52.7s compared to 10.8 minutes.</span>
           </div>
+
+          <!-- Complete Canterbury Shootout Table -->
+          <div class="mt-8 border border-brand-border overflow-x-auto custom-scrollbar font-mono text-[11px]">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="bg-black text-brand-muted uppercase border-b border-brand-border">
+                  <th class="p-2.5 border-r border-brand-border">Archiver &amp; Preset</th>
+                  <th class="p-2.5 border-r border-brand-border">Wall Time</th>
+                  <th class="p-2.5 border-r border-brand-border">Throughput</th>
+                  <th class="p-2.5 border-r border-brand-border">Archive Size</th>
+                  <th class="p-2.5 border-r border-brand-border">Space Saved</th>
+                  <th class="p-2.5">Ratio</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-brand-border text-gray-300">
+                <tr class="bg-brand-subtle text-white"><td class="p-2.5 border-r border-brand-border font-bold text-brand-acid">Apex FAST</td><td class="p-2.5 border-r border-brand-border">2.44 s</td><td class="p-2.5 border-r border-brand-border font-bold text-white">115.6 MB/s</td><td class="p-2.5 border-r border-brand-border">4.4 MB</td><td class="p-2.5 border-r border-brand-border">98.44%</td><td class="p-2.5">64.09x</td></tr>
+                <tr><td class="p-2.5 border-r border-brand-border font-bold text-white">Apex BALANCED</td><td class="p-2.5 border-r border-brand-border">6.70 s</td><td class="p-2.5 border-r border-brand-border">42.1 MB/s</td><td class="p-2.5 border-r border-brand-border">4.2 MB</td><td class="p-2.5 border-r border-brand-border">98.51%</td><td class="p-2.5">67.14x</td></tr>
+                <tr class="bg-brand-subtle text-white"><td class="p-2.5 border-r border-brand-border font-bold text-brand-acid">Apex ULTRA</td><td class="p-2.5 border-r border-brand-border">53.20 s</td><td class="p-2.5 border-r border-brand-border">5.3 MB/s</td><td class="p-2.5 border-r border-brand-border font-bold text-brand-acid">3.9 MB</td><td class="p-2.5 border-r border-brand-border font-bold text-brand-acid">98.62%</td><td class="p-2.5 font-bold text-brand-acid">72.31x</td></tr>
+                <tr><td class="p-2.5 border-r border-brand-border text-brand-muted">Gzip -9</td><td class="p-2.5 border-r border-brand-border">16.58 s</td><td class="p-2.5 border-r border-brand-border">17.0 MB/s</td><td class="p-2.5 border-r border-brand-border">10.2 MB</td><td class="p-2.5 border-r border-brand-border">96.38%</td><td class="p-2.5">27.65x</td></tr>
+                <tr><td class="p-2.5 border-r border-brand-border text-brand-muted">Bzip2 -9</td><td class="p-2.5 border-r border-brand-border">28.12 s</td><td class="p-2.5 border-r border-brand-border">10.0 MB/s</td><td class="p-2.5 border-r border-brand-border">6.8 MB</td><td class="p-2.5 border-r border-brand-border">97.59%</td><td class="p-2.5">41.47x</td></tr>
+                <tr><td class="p-2.5 border-r border-brand-border text-brand-muted">Zstandard -19</td><td class="p-2.5 border-r border-brand-border">49.30 s</td><td class="p-2.5 border-r border-brand-border">5.7 MB/s</td><td class="p-2.5 border-r border-brand-border">4.1 MB</td><td class="p-2.5 border-r border-brand-border">98.55%</td><td class="p-2.5">68.78x</td></tr>
+                <tr class="text-red-400"><td class="p-2.5 border-r border-brand-border">XZ -9e (LZMA2)</td><td class="p-2.5 border-r border-brand-border font-bold">648.10 s</td><td class="p-2.5 border-r border-brand-border">0.4 MB/s</td><td class="p-2.5 border-r border-brand-border">3.9 MB</td><td class="p-2.5 border-r border-brand-border">98.62%</td><td class="p-2.5">72.31x</td></tr>
+              </tbody>
+            </table>
+          </div>
         </div>
 
         <!-- Real-World Scenario: Peak RSS Memory Benchmark -->
@@ -652,6 +679,537 @@ reg import windows_context.reg</pre>
           <div class="text-[10px] text-brand-muted border-t border-hairline pt-3">
             Windows context menu • macOS Finder • Shell scripts
           </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- Section 04: Comprehensive CLI Command Reference -->
+  <section id="commands" class="border-b border-hairline py-16 sm:py-20 bg-[#090A0F]">
+    <div class="max-w-[1440px] mx-auto px-6 sm:px-10">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 pb-6 sm:pb-8 border-b border-hairline gap-6">
+        <div>
+          <span class="font-mono text-xs uppercase tracking-widest text-brand-acid font-bold">04 // COMMAND LINE INTERFACE</span>
+          <h2 class="text-3xl sm:text-5xl font-bold tracking-tight text-white mt-2 uppercase">Complete CLI Manual</h2>
+        </div>
+        <p class="text-sm text-brand-muted max-w-md font-mono">
+          Nine high-performance subcommands engineered for terminal productivity, build scripting, and air-gapped operations.
+        </p>
+      </div>
+
+      <div class="space-y-12 font-mono text-xs">
+        
+        <!-- Command 1: compress -->
+        <div class="border border-brand-border bg-brand-panel p-6 sm:p-8">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-brand-border gap-2">
+            <div class="flex items-center gap-3">
+              <span class="px-2 py-0.5 bg-brand-acid/20 text-brand-acid border border-brand-acid/40 font-bold uppercase tracking-wider text-[11px]">Command</span>
+              <h3 class="text-lg font-bold text-white uppercase">apex compress (c)</h3>
+            </div>
+            <span class="text-brand-muted text-[11px]">Compress file or directory tree into .apx container</span>
+          </div>
+
+          <div class="mt-6 grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <div class="lg:col-span-7 space-y-4">
+              <div class="text-brand-muted text-[11px] leading-relaxed">
+                Compresses input paths using the multi-engine tournament. In directory mode, Apex performs high-speed recursive traversal with os.scandir (4s vs 50s standard os.walk) and deduplicates chunks via FastCDC.
+              </div>
+              <div class="border border-brand-border overflow-x-auto custom-scrollbar">
+                <table class="w-full text-left border-collapse text-[11px]">
+                  <thead>
+                    <tr class="bg-black text-brand-muted uppercase border-b border-brand-border">
+                      <th class="p-2 border-r border-brand-border">Flag</th>
+                      <th class="p-2 border-r border-brand-border">Type</th>
+                      <th class="p-2">Description</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-brand-border text-gray-300">
+                    <tr><td class="p-2 text-brand-acid border-r border-brand-border">-m, --mode</td><td class="p-2 border-r border-brand-border">preset</td><td class="p-2">fast (default, 115MB/s), balanced (42MB/s), ultra (matches XZ), brute (all transforms)</td></tr>
+                    <tr><td class="p-2 text-brand-acid border-r border-brand-border">-o, --output</td><td class="p-2 border-r border-brand-border">path</td><td class="p-2">Destination archive path (defaults to ~/Downloads/&lt;name&gt;.apx)</td></tr>
+                    <tr><td class="p-2 text-brand-acid border-r border-brand-border">-r, --recovery</td><td class="p-2 border-r border-brand-border">flag</td><td class="p-2">Attach Cauchy Reed-Solomon parity records at EOF (~5% size overhead)</td></tr>
+                    <tr><td class="p-2 text-brand-acid border-r border-brand-border">-p, --password</td><td class="p-2 border-r border-brand-border">string</td><td class="p-2">Encrypt archive using authenticated cipher (PBKDF2-HMAC-SHA256, 100k rounds)</td></tr>
+                    <tr><td class="p-2 text-brand-acid border-r border-brand-border">--cipher</td><td class="p-2 border-r border-brand-border">id</td><td class="p-2">chacha20 (pure python default) or aes256 (hardware-accelerated AES-256-CTR)</td></tr>
+                    <tr><td class="p-2 text-brand-acid border-r border-brand-border">--exclude</td><td class="p-2 border-r border-brand-border">pattern</td><td class="p-2">Exclude file or folder by name/glob (e.g. --exclude .git --exclude "*.log")</td></tr>
+                    <tr><td class="p-2 text-brand-acid border-r border-brand-border">--skip-pipeline</td><td class="p-2 border-r border-brand-border">ids</td><td class="p-2">Bypass specific compression pipelines during tournament heats</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="lg:col-span-5 space-y-3">
+              <span class="text-[11px] text-brand-muted uppercase tracking-wider block">Terminal Example</span>
+              <pre class="p-3 bg-black border border-brand-border text-[11px] text-brand-acid overflow-x-auto custom-scrollbar">apex c my_project -o release.apx -m balanced -r   --exclude .git --exclude node_modules</pre>
+              <div class="p-3 bg-[#090A0F] border border-hairline text-[11px] text-brand-muted leading-relaxed">
+                <span class="text-white font-bold block mb-1">Atomic Output Protection:</span>
+                Writes to a sibling temp file (.apx.tmp.&lt;pid&gt;) and atomically renames only after the stream footer and SHA-256 validation complete.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Command 2: decompress -->
+        <div class="border border-brand-border bg-brand-panel p-6 sm:p-8">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-brand-border gap-2">
+            <div class="flex items-center gap-3">
+              <span class="px-2 py-0.5 bg-brand-acid/20 text-brand-acid border border-brand-acid/40 font-bold uppercase tracking-wider text-[11px]">Command</span>
+              <h3 class="text-lg font-bold text-white uppercase">apex decompress (x, extract)</h3>
+            </div>
+            <span class="text-brand-muted text-[11px]">Decompress .apx archive with selective zero-copy filtering</span>
+          </div>
+
+          <div class="mt-6 grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <div class="lg:col-span-7 space-y-4">
+              <div class="text-brand-muted text-[11px] leading-relaxed">
+                Restores files, permissions (POSIX mode masks), timestamps, and symlinks. Features Upfront Directory Tree Materialization to eliminate directory conflict overhead, plus atomic staging to prevent partial files on interrupted extractions.
+              </div>
+              <div class="border border-brand-border overflow-x-auto custom-scrollbar">
+                <table class="w-full text-left border-collapse text-[11px]">
+                  <thead>
+                    <tr class="bg-black text-brand-muted uppercase border-b border-brand-border">
+                      <th class="p-2 border-r border-brand-border">Flag</th>
+                      <th class="p-2 border-r border-brand-border">Type</th>
+                      <th class="p-2">Description</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-brand-border text-gray-300">
+                    <tr><td class="p-2 text-brand-acid border-r border-brand-border">-d, --dest</td><td class="p-2 border-r border-brand-border">path</td><td class="p-2">Destination directory (defaults to current working directory)</td></tr>
+                    <tr><td class="p-2 text-brand-acid border-r border-brand-border">-p, --password</td><td class="p-2 border-r border-brand-border">string</td><td class="p-2">Decryption password if archive was encrypted</td></tr>
+                    <tr><td class="p-2 text-brand-acid border-r border-brand-border">-e, --extract</td><td class="p-2 border-r border-brand-border">pattern</td><td class="p-2">Selective extraction glob: extract only files matching pattern (e.g. -e "*.json")</td></tr>
+                    <tr><td class="p-2 text-brand-acid border-r border-brand-border">--exclude</td><td class="p-2 border-r border-brand-border">pattern</td><td class="p-2">Skip files matching pattern during extraction</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="lg:col-span-5 space-y-3">
+              <span class="text-[11px] text-brand-muted uppercase tracking-wider block">Terminal Example</span>
+              <pre class="p-3 bg-black border border-brand-border text-[11px] text-brand-acid overflow-x-auto custom-scrollbar">apex x backup.apx -d /opt/deploy -e "config/*"
+apex x vault.apx -p "passphrase"</pre>
+              <div class="p-3 bg-[#090A0F] border border-hairline text-[11px] text-brand-muted leading-relaxed">
+                <span class="text-white font-bold block mb-1">Zero-Copy Memoryview Skipping:</span>
+                Non-matching blocks are skipped via direct NVMe file descriptor seeks without inflating memory or decompressing unused payloads.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Command 3: test -->
+        <div class="border border-brand-border bg-brand-panel p-6 sm:p-8">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-brand-border gap-2">
+            <div class="flex items-center gap-3">
+              <span class="px-2 py-0.5 bg-brand-acid/20 text-brand-acid border border-brand-acid/40 font-bold uppercase tracking-wider text-[11px]">Command</span>
+              <h3 class="text-lg font-bold text-white uppercase">apex test (t)</h3>
+            </div>
+            <span class="text-brand-muted text-[11px]">Non-destructive cryptographic integrity verification</span>
+          </div>
+
+          <div class="mt-6 grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <div class="lg:col-span-7 space-y-4">
+              <div class="text-brand-muted text-[11px] leading-relaxed">
+                Verifies every block CRC-32, decompresses payloads in memory without writing to disk, and validates the cumulative 256-bit SHA-256 stream hash against the container footer.
+              </div>
+              <pre class="p-3 bg-black border border-brand-border text-[11px] text-brand-acid overflow-x-auto custom-scrollbar">apex test release.apx
+apex t vault.apx -p "secure_key"</pre>
+            </div>
+            <div class="lg:col-span-5">
+              <div class="p-4 bg-[#090A0F] border border-hairline text-[11px] text-gray-300 font-mono space-y-1">
+                <div class="text-brand-muted">Testing: release.apx</div>
+                <div class="text-white">Blocks: 48 (100% verified)</div>
+                <div class="text-brand-acid font-bold">[OK] Archive Integrity PASSED</div>
+                <div class="text-brand-muted text-[10px]">SHA-256: 75094a747215e258da6ff161a33c2f...</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Command 4 & 5 Grid: list & diff -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          
+          <!-- list -->
+          <div class="border border-brand-border bg-brand-panel p-6 sm:p-8 space-y-4">
+            <div class="flex items-center justify-between pb-3 border-b border-brand-border">
+              <h3 class="text-base font-bold text-white uppercase">apex list (l)</h3>
+              <span class="text-brand-acid text-[11px]">Manifest Inspector</span>
+            </div>
+            <p class="text-brand-muted text-[11px] leading-relaxed">
+              Decodes and displays the archive manifest table: relative path, raw size, POSIX permissions, modification time, and directory tree. Supports machine-readable JSON output via <code class="text-brand-acid">--json</code>.
+            </p>
+            <pre class="p-3 bg-black border border-brand-border text-[11px] text-brand-acid overflow-x-auto custom-scrollbar">apex list archive.apx
+apex l archive.apx --json</pre>
+          </div>
+
+          <!-- diff -->
+          <div class="border border-brand-border bg-brand-panel p-6 sm:p-8 space-y-4">
+            <div class="flex items-center justify-between pb-3 border-b border-brand-border">
+              <h3 class="text-base font-bold text-white uppercase">apex diff (d)</h3>
+              <span class="text-brand-acid text-[11px]">Archive Comparator</span>
+            </div>
+            <p class="text-brand-muted text-[11px] leading-relaxed">
+              Instant header-only comparison of two archives in milliseconds. Reports added files, deleted files, modified sizes, and net uncompressed byte deltas without decompressing file contents.
+            </p>
+            <pre class="p-3 bg-black border border-brand-border text-[11px] text-brand-acid overflow-x-auto custom-scrollbar">apex diff release_v1.apx release_v2.apx
+apex d build_a.apx build_b.apx --json</pre>
+          </div>
+
+        </div>
+
+        <!-- Command 6 & 7 Grid: repair & benchmark -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          
+          <!-- repair -->
+          <div class="border border-brand-border bg-brand-panel p-6 sm:p-8 space-y-4">
+            <div class="flex items-center justify-between pb-3 border-b border-brand-border">
+              <h3 class="text-base font-bold text-white uppercase">apex repair (fix, heal)</h3>
+              <span class="text-emerald-400 text-[11px]">Cauchy Reed-Solomon</span>
+            </div>
+            <p class="text-brand-muted text-[11px] leading-relaxed">
+              Scans archive block CRC-32 checksums. When damaged or corrupted blocks are detected, the solver inverts the Cauchy generator matrix in GF(2^8) to reconstruct original data bit-for-bit, rewriting an intact container.
+            </p>
+            <pre class="p-3 bg-black border border-brand-border text-[11px] text-brand-acid overflow-x-auto custom-scrollbar">apex repair corrupted.apx -o healed.apx
+apex fix vault.apx -p "passphrase"</pre>
+          </div>
+
+          <!-- benchmark -->
+          <div class="border border-brand-border bg-brand-panel p-6 sm:p-8 space-y-4">
+            <div class="flex items-center justify-between pb-3 border-b border-brand-border">
+              <h3 class="text-base font-bold text-white uppercase">apex benchmark (b)</h3>
+              <span class="text-brand-acid text-[11px]">Tournament Shootout</span>
+            </div>
+            <p class="text-brand-muted text-[11px] leading-relaxed">
+              Races the target file simultaneously across Gzip (Level 9), Bzip2 (Level 9), XZ/LZMA2 (Preset 9e), Zstandard (Level 19), Brotli (Level 11), and Apex Fast, Balanced, and Ultra modes.
+            </p>
+            <pre class="p-3 bg-black border border-brand-border text-[11px] text-brand-acid overflow-x-auto custom-scrollbar">apex benchmark dataset.tar
+apex b large.iso --full --max-sample-mb 64</pre>
+          </div>
+
+        </div>
+
+        <!-- Command 8 & 9 Grid: info & completions -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          
+          <!-- info -->
+          <div class="border border-brand-border bg-brand-panel p-6 sm:p-8 space-y-4">
+            <div class="flex items-center justify-between pb-3 border-b border-brand-border">
+              <h3 class="text-base font-bold text-white uppercase">apex info (i)</h3>
+              <span class="text-brand-acid text-[11px]">Entropy Telemetry</span>
+            </div>
+            <p class="text-brand-muted text-[11px] leading-relaxed">
+              Calculates Shannon entropy H(X) in bits/byte, ASCII vs high-byte ratio, null-byte density, and theoretical compressibility limit. Predicts optimal compression modes before executing an archive job.
+            </p>
+            <pre class="p-3 bg-black border border-brand-border text-[11px] text-brand-acid overflow-x-auto custom-scrollbar">apex info database.sqlite
+apex i game_assets.pak</pre>
+          </div>
+
+          <!-- completions -->
+          <div class="border border-brand-border bg-brand-panel p-6 sm:p-8 space-y-4">
+            <div class="flex items-center justify-between pb-3 border-b border-brand-border">
+              <h3 class="text-base font-bold text-white uppercase">apex completions</h3>
+              <span class="text-brand-acid text-[11px]">Shell Autocomplete</span>
+            </div>
+            <p class="text-brand-muted text-[11px] leading-relaxed">
+              Generates native autocompletion scripts for Bash, Zsh, and Fish. Enables tab-completion for all subcommands, mode flags, encryption ciphers, and output parameters.
+            </p>
+            <pre class="p-3 bg-black border border-brand-border text-[11px] text-brand-acid overflow-x-auto custom-scrollbar">source &lt;(apex completions bash)
+apex completions zsh &gt; ~/.zsh/completion/_apex
+apex completions fish &gt; ~/.config/fish/completions/apex.fish</pre>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 05: Python SDK Reference -->
+  <section id="sdk" class="border-b border-hairline py-16 sm:py-20 bg-brand-panel">
+    <div class="max-w-[1440px] mx-auto px-6 sm:px-10">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 pb-6 sm:pb-8 border-b border-hairline gap-6">
+        <div>
+          <span class="font-mono text-xs uppercase tracking-widest text-brand-acid font-bold">05 // PROGRAMMATIC INTEGRATION</span>
+          <h2 class="text-3xl sm:text-5xl font-bold tracking-tight text-white mt-2 uppercase">Python Library SDK</h2>
+        </div>
+        <p class="text-sm text-brand-muted max-w-md font-mono">
+          Native, zero-dependency Python API for embedding tournament compression, memory buffers, and self-healing into pipelines.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 font-mono text-xs">
+        
+        <!-- Left: Full Python Code Reference (7 Cols) -->
+        <div class="lg:col-span-7 bg-[#090A0F] border border-brand-border p-6 sm:p-8 space-y-6">
+          <div class="flex items-center justify-between pb-4 border-b border-brand-border">
+            <span class="text-white font-bold uppercase">SDK API Specification</span>
+            <span class="text-brand-acid">import apex</span>
+          </div>
+
+          <pre class="p-4 bg-black border border-brand-border text-[11px] text-brand-acid overflow-x-auto custom-scrollbar leading-relaxed">import apex
+
+# 1. Archive compression (Directory or File)
+apex.compress_file(
+    src="dataset/",
+    dst="dataset.apx",
+    mode="balanced",       # fast, balanced, ultra, brute
+    recovery=True,         # Cauchy Reed-Solomon parity
+    password=None,         # Optional encryption passphrase
+    exclude=[".git", "*.pyc"]
+)
+
+# 2. Decompression with selective pattern filtering
+apex.decompress_file(
+    src="dataset.apx",
+    dst="restored/",
+    extract_patterns=["*.json", "models/*"]
+)
+
+# 3. Cryptographic integrity check (without disk writes)
+is_intact = apex.test_archive("dataset.apx")
+print("Archive status:", "VALID" if is_intact else "CORRUPT")
+
+# 4. Instant archive diffing (metadata traversal)
+diff = apex.diff_archives("v1.apx", "v2.apx")
+print("Added:", diff.added_files)
+print("Deleted:", diff.deleted_files)
+print("Net Delta:", diff.delta_bytes, "bytes")
+
+# 5. Reed-Solomon bit-rot repair
+apex.repair_archive("damaged.apx", "healed.apx")
+
+# 6. Shannon entropy & compressibility analysis
+info = apex.get_archive_info("raw_samples.bin")
+print(f"Entropy: {info.entropy:.3f} bits/byte, Compressible: {info.is_compressible}")
+
+# 7. In-memory buffer tournament compression (zero disk I/O)
+comp_bytes = apex.compress_buffer(b"Raw uncompressed telemetry stream...", mode="fast")
+orig_bytes = apex.decompress_buffer(comp_bytes)
+assert orig_bytes == b"Raw uncompressed telemetry stream..."</pre>
+        </div>
+
+        <!-- Right: Technical Details & Typing (5 Cols) -->
+        <div class="lg:col-span-5 space-y-6">
+          
+          <div class="border border-brand-border bg-[#090A0F] p-6 space-y-3">
+            <div class="flex items-center gap-2 text-white font-bold uppercase">
+              <i data-lucide="cpu" class="w-4 h-4 text-brand-acid"></i>
+              <span>Zero-Subprocess In-Process Execution</span>
+            </div>
+            <p class="text-brand-muted text-[11px] leading-relaxed">
+              The Python SDK directly invokes the native tournament engine without launching external processes, shells, or intermediary temporary files.
+            </p>
+          </div>
+
+          <div class="border border-brand-border bg-[#090A0F] p-6 space-y-3">
+            <div class="flex items-center gap-2 text-white font-bold uppercase">
+              <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400"></i>
+              <span>Full Exception Hierarchy</span>
+            </div>
+            <p class="text-brand-muted text-[11px] leading-relaxed">
+              Clean exception handling with descriptive error types for corrupt headers, authentication failures, missing parity records, and password mismatches.
+            </p>
+          </div>
+
+          <div class="border border-brand-border bg-[#090A0F] p-6 space-y-3">
+            <div class="flex items-center gap-2 text-white font-bold uppercase">
+              <i data-lucide="layers" class="w-4 h-4 text-brand-acid"></i>
+              <span>Buffer Tournaments</span>
+            </div>
+            <p class="text-brand-muted text-[11px] leading-relaxed">
+              <code class="text-brand-acid">compress_buffer()</code> applies dynamic transforms and engine selection directly on in-memory <code class="text-white">bytes</code> or <code class="text-white">memoryview</code> objects, returning an autonomous payload with auto-detected decompression headers.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 06: Binary Container Specification (.apx) -->
+  <section id="spec" class="border-b border-hairline py-16 sm:py-20 bg-[#090A0F]">
+    <div class="max-w-[1440px] mx-auto px-6 sm:px-10">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 pb-6 sm:pb-8 border-b border-hairline gap-6">
+        <div>
+          <span class="font-mono text-xs uppercase tracking-widest text-brand-acid font-bold">06 // BINARY LAYOUT & PROTOCOL</span>
+          <h2 class="text-3xl sm:text-5xl font-bold tracking-tight text-white mt-2 uppercase">Container Specification</h2>
+        </div>
+        <p class="text-sm text-brand-muted max-w-md font-mono">
+          Specification v1.2.0: Linear streaming layout, inline CRC-32 validation, and cryptographic payload envelopes.
+        </p>
+      </div>
+
+      <!-- Container Diagram -->
+      <div class="border border-brand-border bg-brand-panel p-6 sm:p-8 font-mono text-xs mb-8">
+        <span class="text-[11px] uppercase tracking-wider text-brand-acid font-bold block mb-4">Linear Stream Structure</span>
+        <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 text-center text-[10px]">
+          <div class="p-3 bg-black border border-brand-acid/40 text-brand-acid font-bold">
+            01. MAGIC &amp; HEADER<br/><span class="text-brand-muted font-normal">22 - 38 Bytes</span>
+          </div>
+          <div class="p-3 bg-black border border-brand-border text-white font-bold">
+            02. MANIFEST<br/><span class="text-brand-muted font-normal">Deflate JSON</span>
+          </div>
+          <div class="p-3 bg-black border border-brand-border text-white font-bold col-span-2 sm:col-span-1">
+            03. PAYLOAD BLOCKS<br/><span class="text-brand-muted font-normal">Header + CRC + Data</span>
+          </div>
+          <div class="p-3 bg-black border border-brand-border text-white font-bold">
+            04. STREAM FOOTER<br/><span class="text-brand-muted font-normal">SHA-256 + 48B</span>
+          </div>
+          <div class="p-3 bg-black border border-emerald-400/40 text-emerald-400 font-bold">
+            05. RECOVERY PARITY<br/><span class="text-brand-muted font-normal">Cauchy RS Records</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Header Breakdown Table -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 font-mono text-xs">
+        
+        <div class="border border-brand-border bg-brand-panel p-6 sm:p-8 space-y-4">
+          <span class="text-white font-bold uppercase block pb-3 border-b border-brand-border">Global Header (22 - 38 Bytes)</span>
+          <div class="border border-brand-border overflow-x-auto custom-scrollbar">
+            <table class="w-full text-left border-collapse text-[11px]">
+              <thead>
+                <tr class="bg-black text-brand-muted uppercase border-b border-brand-border">
+                  <th class="p-2 border-r border-brand-border">Offset</th>
+                  <th class="p-2 border-r border-brand-border">Field</th>
+                  <th class="p-2 border-r border-brand-border">Size</th>
+                  <th class="p-2">Description</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-brand-border text-gray-300">
+                <tr><td class="p-2 border-r border-brand-border">0x00</td><td class="p-2 text-brand-acid border-r border-brand-border">Magic</td><td class="p-2 border-r border-brand-border">8B</td><td class="p-2">b'APEX   '</td></tr>
+                <tr><td class="p-2 border-r border-brand-border">0x08</td><td class="p-2 text-brand-acid border-r border-brand-border">Flags</td><td class="p-2 border-r border-brand-border">2B</td><td class="p-2">uint16 container feature bitmask</td></tr>
+                <tr><td class="p-2 border-r border-brand-border">0x0A</td><td class="p-2 text-brand-acid border-r border-brand-border">Block Size</td><td class="p-2 border-r border-brand-border">4B</td><td class="p-2">uint32 chunk size (2MB, 4MB, 8MB)</td></tr>
+                <tr><td class="p-2 border-r border-brand-border">0x0E</td><td class="p-2 text-brand-acid border-r border-brand-border">Manifest Raw</td><td class="p-2 border-r border-brand-border">4B</td><td class="p-2">uint32 uncompressed manifest len</td></tr>
+                <tr><td class="p-2 border-r border-brand-border">0x12</td><td class="p-2 text-brand-acid border-r border-brand-border">Manifest Comp</td><td class="p-2 border-r border-brand-border">4B</td><td class="p-2">uint32 compressed manifest len</td></tr>
+                <tr><td class="p-2 border-r border-brand-border">0x16</td><td class="p-2 text-brand-acid border-r border-brand-border">Salt</td><td class="p-2 border-r border-brand-border">16B</td><td class="p-2">Cryptographic salt (if encrypted)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="border border-brand-border bg-brand-panel p-6 sm:p-8 space-y-4">
+          <span class="text-white font-bold uppercase block pb-3 border-b border-brand-border">Container Flags Bitmask</span>
+          <div class="border border-brand-border overflow-x-auto custom-scrollbar">
+            <table class="w-full text-left border-collapse text-[11px]">
+              <thead>
+                <tr class="bg-black text-brand-muted uppercase border-b border-brand-border">
+                  <th class="p-2 border-r border-brand-border">Bitmask</th>
+                  <th class="p-2 border-r border-brand-border">Identifier</th>
+                  <th class="p-2">Meaning</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-brand-border text-gray-300">
+                <tr><td class="p-2 border-r border-brand-border text-brand-acid">0x0001</td><td class="p-2 border-r border-brand-border font-bold">FLAG_IS_DIR</td><td class="p-2">Archive contains directory hierarchy</td></tr>
+                <tr><td class="p-2 border-r border-brand-border text-brand-acid">0x0002</td><td class="p-2 border-r border-brand-border font-bold">FLAG_SOLID</td><td class="p-2">Solid continuous stream before chunking</td></tr>
+                <tr><td class="p-2 border-r border-brand-border text-brand-acid">0x0004</td><td class="p-2 border-r border-brand-border font-bold">FLAG_SHA256</td><td class="p-2">Global 256-bit SHA digest in footer</td></tr>
+                <tr><td class="p-2 border-r border-brand-border text-brand-acid">0x0008</td><td class="p-2 border-r border-brand-border font-bold">FLAG_ENCRYPTED</td><td class="p-2">Authenticated container encryption active</td></tr>
+                <tr><td class="p-2 border-r border-brand-border text-brand-acid">0x0010</td><td class="p-2 border-r border-brand-border font-bold">FLAG_RECOVERY</td><td class="p-2">Cauchy Reed-Solomon parity records at EOF</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Authenticated Encryption Envelope Spec -->
+      <div class="mt-8 border border-brand-border bg-brand-panel p-6 sm:p-8 font-mono text-xs">
+        <span class="text-white font-bold uppercase block pb-3 border-b border-brand-border mb-4">Authenticated Encryption Envelope</span>
+        <pre class="p-3 bg-black border border-brand-border text-[11px] text-brand-acid overflow-x-auto custom-scrollbar mb-4">+-------------------+----------------------+------------------------+----------------------+
+| Cipher ID (1 byte)| Nonce / IV (12/16 B) | Ciphertext (N bytes)   | HMAC-SHA256 (32 B)   |
++-------------------+----------------------+------------------------+----------------------+</pre>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-[11px] text-brand-muted">
+          <div><span class="text-white font-bold">0x01 CIPHER_CHACHA20_HMAC_SHA256:</span> Pure in-process Python implementation. Zero external C/OpenSSL toolchain dependencies. Immune to ABI breakage.</div>
+          <div><span class="text-white font-bold">0x02 CIPHER_AES256_CTR_HMAC:</span> Hardware-accelerated AES-NI CTR mode with HMAC-SHA256 Encrypt-then-MAC authentication.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 07: Products Powered by Apex -->
+  <section id="products" class="border-b border-hairline py-16 sm:py-20 bg-brand-panel">
+    <div class="max-w-[1440px] mx-auto px-6 sm:px-10">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 pb-6 sm:pb-8 border-b border-hairline gap-6">
+        <div>
+          <span class="font-mono text-xs uppercase tracking-widest text-brand-acid font-bold">07 // ECOSYSTEM ADOPTION</span>
+          <h2 class="text-3xl sm:text-5xl font-bold tracking-tight text-white mt-2 uppercase">Products Powered by Apex</h2>
+        </div>
+        <p class="text-sm text-brand-muted max-w-md font-mono">
+          Real-world applications and cloud pipelines utilizing Apex for containerization and high-throughput asset delivery.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 font-mono text-xs">
+        
+        <!-- Product Card 1: ezaudioconverter.com -->
+        <div class="border border-brand-border bg-[#090A0F] p-8 flex flex-col justify-between space-y-6 group hover:border-brand-acid transition-colors">
+          <div>
+            <div class="flex items-center justify-between pb-4 border-b border-brand-border">
+              <span class="text-white font-bold text-base uppercase tracking-wider">EZAudioConverter</span>
+              <span class="px-2 py-0.5 bg-brand-acid/20 text-brand-acid border border-brand-acid/40 text-[10px] uppercase font-bold">Production</span>
+            </div>
+            <p class="mt-4 text-brand-muted leading-relaxed text-[11px]">
+              High-throughput audio asset conversion platform. Integrates Apex's domain preconditioning filters to package transformed media files and audio waveforms with minimal storage footprint and rapid extraction speeds.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-hairline flex items-center justify-between">
+            <span class="text-[11px] text-brand-muted">Domain Filtering • Zero Bloat</span>
+            <a href="https://ezaudioconverter.com" target="_blank" rel="noopener noreferrer" 
+               class="text-brand-acid hover:text-white uppercase font-bold flex items-center gap-1.5 transition-colors">
+              <span>Visit Site</span>
+              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 08: Technical Constraints & Limitations -->
+  <section id="limitations" class="border-b border-hairline py-16 sm:py-20 bg-[#090A0F]">
+    <div class="max-w-[1440px] mx-auto px-6 sm:px-10">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 pb-6 sm:pb-8 border-b border-hairline gap-6">
+        <div>
+          <span class="font-mono text-xs uppercase tracking-widest text-brand-acid font-bold">08 // TRANSPARENT ENGINEERING</span>
+          <h2 class="text-3xl sm:text-5xl font-bold tracking-tight text-white mt-2 uppercase">Where Apex Does Not Win</h2>
+        </div>
+        <p class="text-sm text-brand-muted max-w-md font-mono">
+          No compression system beats all algorithms across all domains. Here are the genuine technical trade-offs.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 font-mono text-xs">
+        
+        <div class="border border-brand-border bg-brand-panel p-6 space-y-3">
+          <span class="text-white font-bold uppercase block text-sm">Single-Stream Homogeneous Text</span>
+          <p class="text-brand-muted text-[11px] leading-relaxed">
+            If you have a massive, single 500 MB continuous text log, raw single-threaded <code class="text-white">xz -9e</code> can occasionally compress 0.5% to 1.0% smaller because it runs over a continuous 64 MB sliding dictionary without chunk boundary resets.
+          </p>
+          <div class="text-[10px] text-brand-acid border-t border-hairline pt-2">Trade-off: XZ takes 12 minutes vs Apex's 53 seconds.</div>
+        </div>
+
+        <div class="border border-brand-border bg-brand-panel p-6 space-y-3">
+          <span class="text-white font-bold uppercase block text-sm">Pre-Compressed Media Formats</span>
+          <p class="text-brand-muted text-[11px] leading-relaxed">
+            Apex does not re-compress lossy media (JPEG, MP3, MP4, H.265) further than their native codecs. Instead, Apex's incompressibility guard automatically identifies entropy &gt; 7.95 and stores them raw with 0-byte expansion overhead.
+          </p>
+          <div class="text-[10px] text-brand-acid border-t border-hairline pt-2">Protection: Zero expansion penalty on incompressible data.</div>
+        </div>
+
+        <div class="border border-brand-border bg-brand-panel p-6 space-y-3">
+          <span class="text-white font-bold uppercase block text-sm">Ultra Heat Memory Footprint</span>
+          <p class="text-brand-muted text-[11px] leading-relaxed">
+            While Fast mode operates under 28 MB RAM, running Ultra or Brute mode tournament heats across 8+ concurrent logical CPU cores allocates up to 30 MB per active worker thread during peak LZMA2/Zstandard dictionary evaluation.
+          </p>
+          <div class="text-[10px] text-brand-acid border-t border-hairline pt-2">Recommendation: Use Fast or Balanced mode in embedded systems.</div>
         </div>
 
       </div>
@@ -859,11 +1417,11 @@ tar -xf apex-v1.2.0-windows-x86_64.zip
         <div>
           <div class="text-white font-bold uppercase tracking-wider mb-4">Documentation</div>
           <ul class="space-y-2 text-[11px]">
-            <li><a href="https://github.com/qxmcu/apex#readme" class="hover:text-brand-acid transition-colors">Container Specification (.apx)</a></li>
-            <li><a href="https://github.com/qxmcu/homebrew-tap" class="hover:text-brand-acid transition-colors">Homebrew Tap Formula</a></li>
-            <li><a href="https://github.com/qxmcu/apex#compression-modes" class="hover:text-brand-acid transition-colors">Compression Modes Guide</a></li>
-            <li><a href="https://github.com/qxmcu/apex#benchmarks" class="hover:text-brand-acid transition-colors">Canterbury Benchmark Logs</a></li>
-            <li><a href="https://github.com/qxmcu/apex#self-healing-verification" class="hover:text-brand-acid transition-colors">Reed-Solomon Parity Math</a></li>
+            <li><a href="#spec" class="hover:text-brand-acid transition-colors">Container Specification (.apx)</a></li>
+            <li><a href="#commands" class="hover:text-brand-acid transition-colors">CLI Command Manual</a></li>
+            <li><a href="#sdk" class="hover:text-brand-acid transition-colors">Python Library SDK</a></li>
+            <li><a href="#benchmarks" class="hover:text-brand-acid transition-colors">Canterbury Benchmark Logs</a></li>
+            <li><a href="#products" class="hover:text-brand-acid transition-colors">Products using Apex</a></li>
           </ul>
         </div>
 
@@ -886,7 +1444,7 @@ tar -xf apex-v1.2.0-windows-x86_64.zip
             </div>
             <div class="flex justify-between">
               <span>macOS CI:</span>
-              <a href="https://github.com/qxmcu/apex/actions" target="_blank" class="text-brand-acid hover:text-white transition-colors">✓</a>
+              <a href="https://github.com/qxmcu/apex/actions" target="_blank" class="text-brand-acid hover:text-white transition-colors">PASS</a>
             </div>
             <div class="flex justify-between">
               <span>Archive format:</span>
